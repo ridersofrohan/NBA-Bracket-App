@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+        <div class="tournament">
+
+        <canvas id="canvas"></canvas>
+
+        <div class="region">
+
+            <h2 class="region-name">West</h2>
+
+            <section class="round">
+
+                <article class="game">
+                    <div class="team team-golden-state" data-team="golden-state">
+                        <span class="team-seed">1</span>
+                        <span class="team-name">Golden State</span>
+                        <span class="team-score"></span>
+                    </div>
+
+                    <div class="team team-portland" data-team="portland">
+                        <span class="team-seed">8</span>
+                        <span class="team-name">Portland</span>
+                        <span class="team-score"></span>
+                    </div>
+                </article>
+
+                <article class="game">
+                    <div class="team team-la-clippers" data-team="la-clippers">
+                        <span class="team-seed">4</span>
+                        <span class="team-name">LA Clippers</span>
+                        <span class="team-score"></span>
+                    </div>
+
+                    <div class="team team-utah" data-team="utah">
+                        <span class="team-seed">5</span>
+                        <span class="team-name">Utah</span>
+                        <span class="team-score"></span>
+                    </div>
+                </article>
+
+                <article class="game">
+                    <div class="team team-san-antonio" data-team="san-antonio">
+                        <span class="team-seed">2</span>
+                        <span class="team-name">San Antonio</span>
+                        <span class="team-score"></span>
+                    </div>
+
+                    <div class="team team-memphis" data-team="memphis">
+                        <span class="team-seed">7</span>
+                        <span class="team-name">Memphis</span>
+                        <span class="team-score"></span>
+                    </div>
+                </article>
+
+                <article class="game">
+                    <div class="team team-houston" data-team="houston">
+                        <span class="team-seed">3</span>
+                        <span class="team-name">Houston</span>
+                        <span class="team-score"></span>
+                    </div>
+
+                    <div class="team team-oklahoma-city" data-team="oklahoma-city">
+                        <span class="team-seed">6</span>
+                        <span class="team-name">Oklahoma City</span>
+                        <span class="team-score"></span>
+                    </div>
+                </article>
+
+            </section>
+
+            <section class="round">
+
+                <article class="game">
+                    <div class="team" data-team="">
+                        <span class="team-seed"></span>
+                        <span class="team-name"></span>
+                        <span class="team-score"></span>
+                    </div>
+
+                    <div class="team" data-team="">
+                        <span class="team-seed"></span>
+                        <span class="team-name"></span>
+                        <span class="team-score"></span>
+                    </div>
+                </article>
+
+                <article class="game">
+                    <div class="team" data-team="">
+                        <span class="team-seed"></span>
+                        <span class="team-name"></span>
+                        <span class="team-score"></span>
+                    </div>
+
+                    <div class="team" data-team="">
+                        <span class="team-seed"></span>
+                        <span class="team-name"></span>
+                        <span class="team-score"></span>
+                    </div>
+                </article>
+
+            </section>
+
+            <section class="round">
+
+                <article class="game">
+                    <div class="team" data-team="">
+                        <span class="team-seed"></span>
+                        <span class="team-name"></span>
+                        <span class="team-score"></span>
+                    </div>
+
+                    <div class="team" data-team="">
+                        <span class="team-seed"></span>
+                        <span class="team-name"></span>
+                        <span class="team-score"></span>
+                    </div>
+                </article>
+
+            </section>
+
+        </div>
+
+        <div class="region region-right">
+
+            <h2 class="region-name">East</h2>
+
+            <section class="round">
+
+                <article class="game">
+                    <div class="team team-boston" data-team="boston">
+                        <span class="team-seed">1</span>
+                        <span class="team-name">Boston</span>
+                        <span class="team-score"></span>
+                    </div>
+
+                    <div class="team team-chicago" data-team="chicago">
+                        <span class="team-seed">8</span>
+                        <span class="team-name">Chicago</span>
+                        <span class="team-score"></span>
+                    </div>
+                </article>
+
+                <article class="game">
+                    <div class="team team-washington" data-team="washington">
+                        <span class="team-seed">4</span>
+                        <span class="team-name">Washington</span>
+                        <span class="team-score"></span>
+                    </div>
+
+                    <div class="team team-atlanta" data-team="atlanta">
+                        <span class="team-seed">5</span>
+                        <span class="team-name">Atlanta</span>
+                        <span class="team-score"></span>
+                    </div>
+                </article>
+
+                <article class="game">
+                    <div class="team team-cleveland" data-team="cleveland">
+                        <span class="team-seed">2</span>
+                        <span class="team-name">Cleveland</span>
+                        <span class="team-score"></span>
+                    </div>
+
+                    <div class="team team-indiana" data-team="indiana">
+                        <span class="team-seed">7</span>
+                        <span class="team-name">Indiana</span>
+                        <span class="team-score"></span>
+                    </div>
+                </article>
+
+                <article class="game">
+                    <div class="team team-toronto" data-team="toronto">
+                        <span class="team-seed">3</span>
+                        <span class="team-name">Toronto</span>
+                        <span class="team-score"></span>
+                    </div>
+
+                    <div class="team team-milwaukee" data-team="milwaukee">
+                        <span class="team-seed">6</span>
+                        <span class="team-name">Milwaukee</span>
+                        <span class="team-score"></span>
+                    </div>
+                </article>
+
+            </section>
+
+            <section class="round">
+
+                <article class="game">
+                    <div class="team" data-team="">
+                        <span class="team-seed"></span>
+                        <span class="team-name"></span>
+                        <span class="team-score"></span>
+                    </div>
+
+                    <div class="team" data-team="">
+                        <span class="team-seed"></span>
+                        <span class="team-name"></span>
+                        <span class="team-score"></span>
+                    </div>
+                </article>
+
+                <article class="game">
+                    <div class="team" data-team="">
+                        <span class="team-seed"></span>
+                        <span class="team-name"></span>
+                        <span class="team-score"></span>
+                    </div>
+
+                    <div class="team" data-team="">
+                        <span class="team-seed"></span>
+                        <span class="team-name"></span>
+                        <span class="team-score"></span>
+                    </div>
+                </article>
+
+            </section>
+
+            <section class="round">
+
+                <article class="game">
+                    <div class="team" data-team="">
+                        <span class="team-seed"></span>
+                        <span class="team-name"></span>
+                        <span class="team-score"></span>
+                    </div>
+
+                    <div class="team" data-team="">
+                        <span class="team-seed"></span>
+                        <span class="team-name"></span>
+                        <span class="team-score"></span>
+                    </div>
+                </article>
+
+            </section>
+
+        </div>
+
+        <div class="round final-four">
+
+            <article class="game">
+                <div class="team" data-team="">
+                    <span class="team-seed"></span>
+                    <span class="team-name"></span>
+                    <span class="team-score"></span>
+                </div>
+
+                <div class="team" data-team="">
+                    <span class="team-seed"></span>
+                    <span class="team-name"></span>
+                    <span class="team-score"></span>
+                </div>
+            </article>
+        </div>
+
+        </div>
+
+        <script type="text/javascript" src="base.js"></script>
+    </body>
+</html

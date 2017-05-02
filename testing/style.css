@@ -1,0 +1,189 @@
+body {
+  background: #F2F2F2;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+}
+
+.tournament {
+  height: 100%;
+  width: 100%;
+}
+
+#canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.region {
+  height: 95%;
+  position: relative;
+  width: 50%;
+  float: left;
+}
+.region .region-name {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  line-height: 0;
+  margin: -18px -50px 0;
+  padding: 0;
+  font: 600 30px proxima-nova, proxima-nova-1, proxima-nova-2, "Proxima Nova", arial, helvetica, sans-serif;
+}
+
+.round {
+  font: 300 15px proxima-nova, proxima-nova-1, proxima-nova-2, "Proxima Nova", arial, helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  padding: 0 20px;
+  float: left;
+  width: 28.5%;
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+}
+.round.round-collapse {
+  margin-left: -16.666666666%;
+}
+.round .game {
+  background: #FFF;
+  border-radius: 3px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-height: 80px;
+  pointer-events: auto;
+}
+.round .game .team {
+  display: flex;
+  align-items: center;
+  flex: 1 1 40px;
+  cursor: pointer;
+  border-left: 10px solid #DDD;
+  transition: .2s;
+  /* keep this for smoother transitions: */
+  box-shadow: inset 0 40px 0 rgba(255, 255, 255, 0);
+}
+.round .game .team .team-seed {
+  font-size: 10px;
+  color: #999;
+  flex: 0 1 30px;
+  text-align: center;
+  transition: .2s;
+}
+.round .game .team .team-name {
+  flex: 1 1 auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.round .game .team .team-score {
+  font-weight: 600;
+  flex: 0 1 30px;
+}
+.round .game .team .team-score:empty {
+  display: none;
+}
+.round .game .team.team-hover {
+  background: #CFC59A;
+  color: #FFF !important;
+  box-shadow: inset 0 40px 0 rgba(255, 255, 255, 0.2);
+}
+.round .game .team.team-hover .team-seed {
+  color: #FFF;
+}
+.round .game .team:active {
+  box-shadow: inset 0 40px 0 rgba(255, 255, 255, 0);
+}
+.round .game .team.team-loser {
+  background: #F7F7F7;
+  color: #BBB;
+}
+
+.region-right .round {
+  float: right;
+}
+.region-right .round.round-collapse {
+  margin-left: 0;
+  margin-right: -16.666666666%;
+}
+.region-right .round .team {
+  border-left: 0;
+  border-right: 10px solid #DDD;
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.region-right .region-name {
+  margin: -18px 50px 0;
+}
+
+.round.final-four{
+  height:30%;
+  width:15%;
+  position:absolute;
+  top:50%;
+  left:52%;
+  margin-left:-9.5%;
+}
+
+.round .game .team-golden-state {
+  border-color: #FDB927;
+}
+.round .game .team-san-antonio {
+  border-color: #BAC3C9;
+}
+.round .game .team-houston {
+  border-color: #CE1141;
+}
+.round .game .team-la-clippers {
+  border-color: #ED174C;
+}
+.round .game .team-utah {
+  border-color: #002B5C;
+}
+.round .game .team-oklahoma-city {
+  border-color: #007DC3;
+}
+.round .game .team-memphis {
+  border-color: #7399C6;
+}
+.round .game .team-portland {
+  border-color: #E03A3E;
+}
+.round .game .team-boston {
+  border-color: #008348;
+}
+.round .game .team-cleveland {
+  border-color: #860038;
+}
+.round .game .team-toronto {
+  border-color: #CE1141;
+}
+.round .game .team-washington {
+  border-color: #002B5C;
+}
+.round .game .team-atlanta {
+  border-color: #E13A3E;
+}
+.round .game .team-milwaukee {
+  border-color: #00471B;
+}
+.round .game .team-indiana {
+  border-color: #FFC633;
+}
+.round .game .team-chicago {
+  border-color: #CE1141;
+}
