@@ -1,42 +1,42 @@
 import React, { Component } from 'react';
-
 import Round from './round';
 
 class Region extends Component {
   render() {
 
-    console.log("rounds", this.props.rounds);
-    console.log("seeds", this.props.seeds);
-
     if(this.props.name === "Final") {
-        return (
-            <div>
-                <Round
-                    number={0}
-                    seeds={this.props.seeds}
-                    pairings={this.props.rounds[0]}
-                    key={0}
-                    final={true} />
-            </div>
-        );
+      return (
+        <Round
+          seeds={this.props.seeds}
+          pairings={this.props.rounds[0]}
+          games={this.props.games[0]}
+          gamesPredicted={this.props.userData["games"][0]}
+          pairingsPredicted={this.props.userData["matchups"][0]}
+          final={true}
+          number={0}
+          key={0} />
+      );
     }
 
     var rounds = this.props.rounds.map((element, i) =>
-        <Round
-            number={i}
-            seeds={this.props.seeds}
-            pairings={element}
-            key={i}
-            final={false} />
+      <Round
+        seeds={this.props.seeds}
+        pairings={element}
+        games={this.props.games[i]}
+        gamesPredicted={this.props.userData["games"][i]}
+        pairingsPredicted={this.props.userData["matchups"][i]}
+        final={false}
+        number={i}
+        key={i} />
     );
 
+    console.log("region");
     return (
-        <div className={this.props.type === "right" ? "region region-right" : "region"}>
-            <h2 className="region-name">{this.props.name}</h2>
-            {rounds}
-        </div>
+      <div className={this.props.type === "right" ? "region region-right" : "region"}>
+        <h2 className="region-name">{this.props.name}</h2>
+        {rounds}
+      </div>
     );
   }
 }
-
 export default Region;

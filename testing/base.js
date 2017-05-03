@@ -18,19 +18,6 @@ var Tournament = function() {
 
         bindEvents: function() {
             $(window).on('resize', this.render.bind(this));
-
-            $('.team').on({
-                mouseenter: function(e) {
-                    $('.team-' + $(this).attr('data-team'))
-                        .addClass('team-hover')
-                        .css('background', $(this).css('border-left-color'));
-                },
-                mouseleave: function(e) {
-                    $('.team-' + $(this).attr('data-team'))
-                        .removeClass('team-hover')
-                        .css('background', '');
-                }
-            });
         },
 
         render: function() {
@@ -42,8 +29,6 @@ var Tournament = function() {
             this.canvas.style.height = h + 'px';
             this.ctx.clearRect( 0, 0, this.canvas.width, this.canvas.height );
             this.ctx.scale(2, 2); // retina
-
-            console.log(this.options.regionSelector);
 
             var that = this;
 

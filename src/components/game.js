@@ -1,61 +1,104 @@
 import React, { Component } from 'react';
 
-class Game extends Component {
-  toTitleCase(str) {
-    return str.replace(/\w\S*/g,
-        function(txt) {
-            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-        }
-    );
-  }
+import Team from './team';
+import GameSelector from './gameselector';
 
+class Game extends Component {
   adjustName(name) {
     name = name.replace("-", " ");
-    return this.toTitleCase(name);
+    return name.replace(/\w\S*/g,
+      function(txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+      }
+    );
   }
 
   getNames() {
     if (this.props.firstSeed !== 0) {
-        var firstName = this.props.seeds[this.props.firstSeed];
-        this.ogFirstName = firstName;
-        this.firstName = this.adjustName(firstName);
+      var firstName = this.props.seeds[this.props.firstSeed];
+      this.ogFirstName = firstName;
+      this.firstName = this.adjustName(firstName);
     }
 
     if (this.props.secondSeed !== 0) {
-        var secondName = this.props.seeds[this.props.secondSeed];
-        this.ogSecondName = secondName;
-        this.secondName = this.adjustName(secondName);
+      var secondName = this.props.seeds[this.props.secondSeed];
+      this.ogSecondName = secondName;
+      this.secondName = this.adjustName(secondName);
     }
+  }
+
+  getNamesPredicted() {
+
+    if(this.props.final) {
+      var firstSeed = this.props.firstSeedPredicted;
+      var firstName = this.props.seeds[firstSeed[0]][firstSeed[1]];
+      this.ogFirstNamePredicted = firstName;
+      this.firstNamePredicted = this.adjustName(firstName);
+
+      var secondSeed = this.props.secondSeedPredicted;
+      var secondName = this.props.seeds[secondSeed[0]][secondSeed[1]];
+      this.ogSecondNamePredicted = secondName;
+      this.secondNamePredicted = this.adjustName(secondName);
+    }
+    else {
+      var firstName = this.props.seeds[this.props.firstSeedPredicted];
+      this.ogFirstNamePredicted = firstName;
+      this.firstNamePredicted = this.adjustName(firstName);
+
+      var secondName = this.props.seeds[this.props.secondSeedPredicted];
+      this.ogSecondNamePredicted = secondName;
+      this.secondNamePredicted = this.adjustName(secondName);
+    }
+  }
+
+  summarize() {
+    var response = {};
+    response[this.props.firstSeed] = {
+      name: this.ogFirstName
+    };
+    response[this.props.secondSeed] = {
+      name: this.ogSecondName
+    };
+    return response;
   }
 
   render() {
     this.getNames();
-    return (
-        <article className="game">
-            <div
-                className={this.props.firstSeed === 0 ? "team" : "team team-"+this.ogFirstName}
-                data-team={this.props.firstSeed === 0 ? "" : this.ogFirstName} >
-                    <span className="team-seed">
-                        {this.props.firstSeed === 0 ? "" : this.props.firstSeed}
-                    </span>
-                    <span className="team-name">
-                        {this.props.firstSeed == 0 ? "" : this.firstName}
-                    </span>
-            </div>
 
-            <div
-                className={this.props.ogSecondSeed == 0 ? "team" : "team team-"+this.ogSecondName}
-                data-team={this.props.secondSeed == 0 ? "" : this.ogSecondName} >
-                    <span className="team-seed">
-                        {this.props.secondSeed == 0 ? "" : this.props.secondSeed}
-                    </span>
-                    <span className="team-name">
-                        {this.props.secondSeed == 0 ? "" : this.secondName}
-                    </span>
-            </div>
-        </article>
+    if(this.props.firstSeedPredicted) {
+      this.getNamesPredicted();
+    }
+    else {
+      this.ogFirstNamePredicted = "";
+      this.firstNamePredicted = "";
+      this.ogSecondNamePredicted = "";
+      this.secondNamePredicted = "";
+    }
+
+    return (
+      <article className="game">
+        <Team
+          name={this.ogFirstName}
+          namePredicted={this.ogFirstNamePredicted}
+          displayName={this.firstName}
+          displayNamePredicted={this.firstNamePredicted}
+          seed = {this.props.firstSeed}
+          seedPredicted = {this.props.final ? this.props.firstSeedPredicted[1] : this.props.firstSeedPredicted} />
+
+        <Team
+          name={this.ogSecondName}
+          namePredicted={this.ogSecondNamePredicted}
+          displayName={this.secondName}
+          displayNamePredicted={this.secondNamePredicted}
+          seed = {this.props.secondSeed}
+          seedPredicted = {this.props.final ? this.props.secondSeedPredicted[1] : this.props.secondSeedPredicted} />
+
+        <GameSelector
+          games={this.props.games}
+          seeds={this.summarize()}
+          gamesPredicted={this.props.gamesPredicted} />
+      </article>
     );
   }
 }
-
 export default Game;
