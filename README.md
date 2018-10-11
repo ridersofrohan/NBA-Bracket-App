@@ -1,7 +1,7 @@
 # nba-playoff-bracket
 NBA Playoff Bracket built with react
 
-![pic](https://raw.githubusercontent.com/ridersofrohan/NBA-Bracket-App/edit/master/images/sample.png)
+![pic](https://raw.githubusercontent.com/ridersofrohan/NBA-Bracket-App/master/images/sample.png)
 
 yarn start will display on localhost:5000/
 
